@@ -1,17 +1,18 @@
-%define module	setuptools
- 
+%define	module	distribute
+
 Summary:	Python Distutils Enhancements
 Name:		python-%{module}
 Version:	0.6.16
 Release:	%mkrel 1
 License:	Zope Public License (ZPL)
 Group:		Development/Python
-Url:		http://pypi.python.org/pypi/distribute
-Source0:        http://pypi.python.org/packages/source/d/distribute/distribute-%{version}.tar.gz
+Url:		http://pypi.python.org/pypi/%{module}
+Source0:        http://pypi.python.org/packages/source/d/%{module}/%{module}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	python-devel
 Requires:	python-devel
 Requires:	python-pkg-resources
+%rename		python-setuptools
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -29,7 +30,7 @@ Module used to find and manage Python package/version dependencies and access
 bundled files and resources, including those inside of zipped .egg files.
 
 %prep
-%setup -q -n distribute-%{version}
+%setup -q -n %{module}-%{version}
 
 %build
 export CFLAGS="%{optflags}"
