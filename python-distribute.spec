@@ -2,12 +2,12 @@
 
 Summary:	Python Distutils Enhancements
 Name:		python-%{module}
-Version:	0.6.24
+Version:	0.6.27
 Release:	1
 License:	Zope Public License (ZPL)
 Group:		Development/Python
 Url:		http://pypi.python.org/pypi/%{module}
-Source0:        http://pypi.python.org/packages/source/d/%{module}/%{module}-%{version}.tar.gz
+Source0:    http://pypi.python.org/packages/source/d/%{module}/%{module}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	python-devel
 Requires:	python-devel
@@ -39,7 +39,7 @@ export CFLAGS="%{optflags}"
 %__python setup.py test
 
 %install
-%__python setup.py install --root=%{buildroot}
+PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
 %files
 %doc *.txt
