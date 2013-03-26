@@ -3,7 +3,7 @@
 Summary:	Python Distutils Enhancements
 Name:		python-%{module}
 Version:	0.6.35
-Release:	2
+Release:	3
 License:	Zope Public License (ZPL)
 Group:		Development/Python
 Url:		http://pypi.python.org/pypi/%{module}
@@ -19,7 +19,7 @@ A collection of enhancements to the Python distutils that allow
 you to more easily build and distribute Python packages, especially 
 ones that have dependencies on other packages.
 
-%package -n python3-setuptools
+%package -n python3-%{module}
 Summary:	Python Distutils Enhancements
 Group:		Development/Python
 
@@ -28,7 +28,7 @@ BuildRequires:  python3-devel
 Requires:	python3-devel
 Requires:	python3-pkg-resources
 
-%description -n python3-setuptools
+%description -n python3-%{module}
 A collection of enhancements to the Python 3 distutils that allow
 you to more easily build and distribute Python 3 packages, especially
 ones that have dependencies on other packages.
@@ -36,7 +36,6 @@ ones that have dependencies on other packages.
 %package -n	python-pkg-resources
 Summary:	Runtime module to access python resources
 Group:		Development/Python
-Conflicts:	python-setuptools < 0.6c9-2mdv
 
 %description -n	python-pkg-resources
 Module used to find and manage Python package/version dependencies and access
@@ -113,7 +112,7 @@ popd
 %files -n python-pkg-resources
 %{py_sitedir}/pkg_resources.py*
 
-%files -n python3-setuptools
+%files -n python3-%{module}
 %doc python3/*.txt
 %{_bindir}/easy_install-3.*
 %{python3_sitelib}/*
