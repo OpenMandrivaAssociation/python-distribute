@@ -2,8 +2,8 @@
 
 Summary:	Python Distutils Enhancements
 Name:		python-%{module}
-Version:	0.6.45
-Release:	5
+Version:	0.6.49
+Release:	1
 License:	Zope Public License (ZPL)
 Group:		Development/Python
 Url:		http://pypi.python.org/pypi/%{module}
@@ -53,7 +53,6 @@ bundled files and resources, including those inside of zipped .egg files.
 %setup -q -c
 mv distribute-%{version} python2
 pushd python2
-    find -name '*.txt' | xargs chmod -x
     find . -name '*.orig' -exec rm \{\} \;
 popd
 
