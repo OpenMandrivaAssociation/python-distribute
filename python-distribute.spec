@@ -1,13 +1,14 @@
 %define	module	distribute
 
 Summary:	Python Distutils Enhancements
+
 Name:		python-%{module}
-Version:	0.6.49
-Release:	2
+Version:	0.7.3
+Release:	1
 License:	Zope Public License (ZPL)
 Group:		Development/Python
 Url:		http://pypi.python.org/pypi/%{module}
-Source0:	http://pypi.python.org/packages/source/d/distribute/distribute-%{version}.tar.gz
+Source0:	http://pypi.python.org/packages/source/d/distribute/distribute-%{version}.zip
 BuildArch:	noarch
 BuildRequires:	pkgconfig(python)
 Requires:	python-devel
@@ -21,6 +22,7 @@ ones that have dependencies on other packages.
 
 %package -n python3-%{module}
 Summary:	Python Distutils Enhancements
+
 Group:		Development/Python
 
 BuildRequires:	python3-devel
@@ -35,6 +37,7 @@ ones that have dependencies on other packages.
 
 %package -n	python-pkg-resources
 Summary:	Runtime module to access python resources
+
 Group:		Development/Python
 
 %description -n	python-pkg-resources
@@ -43,6 +46,7 @@ bundled files and resources, including those inside of zipped .egg files.
 
 %package -n python3-pkg-resources
 Summary:	Runtime module to access python 3 resources
+
 Group:		Development/Python
 
 %description -n python3-pkg-resources
@@ -89,34 +93,35 @@ pushd python3
     PYTHONDONTWRITEBYTECODE= python3 setup.py install --skip-build --root=%{buildroot}
 #    rm -rf %{buildroot}%{python3_sitelib}/setuptools/tests
 
-    find %{buildroot}%{python3_sitelib} -name '*.exe' | xargs rm -f
-    chmod +x %{buildroot}%{python3_sitelib}/setuptools/command/easy_install.py
+    find %{buildroot}%{py3_puresitedir} -name '*.exe' | xargs rm -f
+    chmod +x %{buildroot}%{py3_puresitedir}/setuptools/command/easy_install.py
 popd
 
 pushd python2
     PYTHONDONTWRITEBYTECODE= %__python setup.py install --skip-build --root=%{buildroot}
 #    rm -rf %{buildroot}%{python_sitelib}/setuptools/tests
 
-    find %{buildroot}%{python_sitelib} -name '*.exe' | xargs rm -f
-    chmod +x %{buildroot}%{python_sitelib}/setuptools/command/easy_install.py
+    find %{buildroot}%{py_puresitedir} -name '*.exe' | xargs rm -f
+    chmod +x %{buildroot}%{py_puresitedir}/setuptools/command/easy_install.py
 popd
 
 %files
 %doc python2/*.txt
 %{_bindir}/easy_install
 %{_bindir}/easy_install-2.*
-%{py_sitedir}/*
-%exclude %{py_sitedir}/pkg_resources.py*
+%{py_puresitedir}/*
+%exclude %{py_puresitedir}/pkg_resources.py*
 
 %files -n python-pkg-resources
-%{py_sitedir}/pkg_resources.py*
+%{py_puresitedir}/pkg_resources.py*
 
 %files -n python3-%{module}
 %doc python3/*.txt
 %{_bindir}/easy_install-3.*
-%{python3_sitelib}/*
-%exclude %{python3_sitelib}/pkg_resources.py*
+%{py3_puresitedir}/*
+%exclude %{py3_puresitedir}/pkg_resources.py*
 
 %files -n python3-pkg-resources
-%{python3_sitelib}/pkg_resources.py*
+%{py3_puresitedir}/pkg_resources.py*
+
 

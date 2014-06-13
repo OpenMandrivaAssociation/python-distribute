@@ -1,4 +1,5 @@
 removed_sources:
   distribute-0.6.45.tar.gz: 55b15037f2222828496a96f38447c0fa0228df85
-sources:
   distribute-0.6.49.tar.gz: a62cfe21bd0e5e2913c5b576f872ca293b9bebca
+sources:
+  distribute-0.7.3.zip: 297bd0725027ca39dcb35fa00327bc35b2f2c5e3
