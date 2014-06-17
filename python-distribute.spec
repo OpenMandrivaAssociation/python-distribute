@@ -51,29 +51,29 @@ bundled files and resources, including those inside of zipped .egg files.
 
 %prep
 %setup -q -b 1 -c
-cd ../distribute-0.6.*
+cd distribute-0.6.*
 find -name '*.py' -exec sed -i '1s|^#!python|#!python2|' {} \;
 
 %build
 export CFLAGS="%{optflags}"
-cd ../distribute-0.6.*
+cd distribute-0.6.*
 python2 setup.py build
 
-cd ../distribute-0.7.3
+cd ../distribute-0.7*
 python3 setup.py build
 
 %install
-cd ../distribute-0.6.*
+cd distribute-0.6.*
 PYTHONDONTWRITEBYTECODE= python2 setup.py install --skip-build --root=%{buildroot}
 
-cd ../distribute-0.7.3
+cd ../distribute-0.7*
 PYTHONDONTWRITEBYTECODE= python3 setup.py install --skip-build --root=%{buildroot}
 
 %files
-%{_bindir}/easy_install
 %{py_sitedir}/*
 
 %files -n python2-%{module}
+%{_bindir}/easy_install
 %{_bindir}/easy_install-2.*
 %{python2_sitelib}/*
 %exclude %{python2_sitelib}/pkg_resources.py*
