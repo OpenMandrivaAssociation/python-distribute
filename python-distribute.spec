@@ -4,7 +4,7 @@
 Summary:	Python Distutils Enhancements
 Name:		python-%{module}
 Version:	0.7.3
-Release:	2
+Release:	3
 License:	Zope Public License (ZPL)
 Group:		Development/Python
 Url:		http://pypi.python.org/pypi/%{module}
@@ -26,7 +26,7 @@ ones that have dependencies on other packages.
 %package -n python2-%{module}
 Summary:	Python 2 Distutils Enhancements
 Version:	%{py2_version}
-Release:	10
+Release:	11
 Group:		Development/Python
 
 BuildRequires:	pkgconfig(python)
@@ -43,7 +43,7 @@ ones that have dependencies on other packages.
 Summary:	Runtime module to access python 2 resources
 Version:	%{py2_version}
 Obsoletes:	python-pkg-resources <= 0.6.35
-Release:	11
+Release:	12
 Group:		Development/Python
 
 %description -n python2-pkg-resources
